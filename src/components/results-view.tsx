@@ -3,12 +3,15 @@
 import { useState } from "react";
 import { HexTable } from "@/components/hex-table";
 import { HostMenu } from "@/components/host-menu";
+import { LegacyTileNote, SliceMap, SliceSummary, TileDetail } from "@/components/slice-view";
 import { Button } from "@/components/ui";
 import { seatDraft } from "@/lib/board";
 import { oppositePosition } from "@/lib/draft-rules";
 import { errorMessage } from "@/lib/errors";
 import { factionName, sliceName } from "@/lib/labels";
 import { revealFactions } from "@/lib/api";
+import { homesForSeat, minorFactionAcrossFrom } from "@/lib/slice-homes";
+import { lookupTile, readStoredTiles } from "@/lib/tiles";
 import type { DraftRoom, PlayerRow } from "@/lib/types";
 
 export function ResultsView({
@@ -97,11 +100,23 @@ function PlayerResult({
   animate: boolean;
   delay: number;
 }) {
+  const [openTile, setOpenTile] = useState<{ tileId: string; heading?: string; emptyNote?: string } | null>(null);
   const seat = seatDraft(room.picks, player.id);
   const factionA = factionName(room.factions, seat.factions[0]?.faction_id ?? null);
   const factionB = factionName(room.factions, seat.factions[1]?.faction_id ?? null);
-  const slice = sliceName(room.slices, seat.sliceId);
+  const slice = room.slices.find((entry) => entry.id === seat.sliceId) ?? null;
   const opposite = seat.position ? oppositePosition(seat.position) : null;
+  const revealedNames = revealed
+    ? seatsForHomes(room)
+    : [];
+  const oppositeMinor = seat.position ? minorFactionAcrossFrom(seat.position, revealedNames) : null;
+  const homes = homesForSeat({
+    revealed,
+    position: seat.position,
+    mainFaction: cleanName(factionName(room.factions, player.main_faction_id)),
+    oppositeMinorFaction: cleanName(oppositeMinor),
+  });
+  const stored = readStoredTiles(Array.isArray(slice?.tile_ids) ? slice.tile_ids : []);
 
   return (
     <article
@@ -113,7 +128,7 @@ function PlayerResult({
         <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
           <Result label="Main faction" value={factionName(room.factions, player.main_faction_id)} emphasis />
           <Result label="Minor faction" value={factionName(room.factions, player.minor_faction_id)} />
-          <Result label="Slice" value={slice} />
+          <Result label="Slice" value={sliceName(room.slices, seat.sliceId)} />
           <Result label="Position" value={seat.position ? String(seat.position) : "—"} />
           <Result
             label="Minor faction location"
@@ -124,12 +139,61 @@ function PlayerResult({
         <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
           <Result label="Faction A" value={factionA} />
           <Result label="Faction B" value={factionB} />
-          <Result label="Slice" value={slice} />
+          <Result label="Slice" value={sliceName(room.slices, seat.sliceId)} />
           <Result label="Position" value={seat.position ? String(seat.position) : "—"} />
         </dl>
       )}
+      {slice ? (
+        <div className="mt-3">
+          <SliceMap
+            tileIds={stored.slots}
+            homes={homes}
+            blankLabel={stored.legacy ? "Older list" : "Empty"}
+            onInspect={(detail) =>
+              setOpenTile({
+                tileId: detail.tileId,
+                heading: detail.factionName ?? (detail.role === "main" ? homes.main.title : detail.role === "minor" ? homes.minor.title : undefined),
+                emptyNote:
+                  detail.role === "system"
+                    ? undefined
+                    : detail.factionName
+                      ? "This faction's home system is not in the local catalog. Only the name is shown."
+                      : "This home is reserved until the host reveals main and minor factions.",
+              })
+            }
+          />
+          {stored.legacy ? <LegacyTileNote tileIds={stored.legacy} onOpen={(tileId) => setOpenTile({ tileId })} /> : null}
+          <SliceSummary
+            tileIds={(stored.legacy ?? stored.slots).some(Boolean) ? (stored.legacy ?? stored.slots) : []}
+            resources={slice.total_resources}
+            influence={slice.total_influence}
+            legacy={Boolean(stored.legacy)}
+          />
+          {openTile ? (
+            <TileDetail
+              tileId={openTile.tileId}
+              tile={openTile.tileId ? lookupTile(openTile.tileId) : null}
+              heading={openTile.heading}
+              emptyNote={openTile.emptyNote}
+              onClose={() => setOpenTile(null)}
+            />
+          ) : null}
+        </div>
+      ) : null}
     </article>
   );
+}
+
+function cleanName(value: string | null): string | null {
+  if (!value || value === "—") return null;
+  return value;
+}
+
+function seatsForHomes(room: DraftRoom) {
+  return room.players.map((player) => ({
+    position: seatDraft(room.picks, player.id).position ?? 0,
+    minorFaction: cleanName(factionName(room.factions, player.minor_faction_id)),
+  }));
 }
 
 function Result({ label, value, emphasis = false }: { label: string; value: string; emphasis?: boolean }) {

@@ -53,19 +53,19 @@ export function HomeScreen() {
         </div>
       </section>
       <section className="rounded-3xl border border-white/10 bg-[#12182a]/80 p-4">
-        <h2 className="font-display text-xl">Return to a table</h2>
-        <p className="mt-1 text-sm text-white/60">Players should open their personal invite link. The table code is for the host.</p>
+        <h2 className="font-display text-xl">Join a lobby</h2>
+        <p className="mt-1 text-sm text-white/60">Enter the room code from the host. You will claim your own seat. The same code opens the shared lobby link.</p>
         <form
           className="mt-3 flex flex-col gap-2 sm:flex-row"
           onSubmit={(event) => {
             event.preventDefault();
             const next = code.trim().toUpperCase();
-            if (next) router.push(`/draft/${next}`);
+            if (next) router.push(`/join/${next}`);
           }}
         >
-          <TextInput value={code} onChange={(event) => setCode(event.target.value)} placeholder="Table code" aria-label="Table code" />
+          <TextInput value={code} onChange={(event) => setCode(event.target.value.toUpperCase())} placeholder="Room code" aria-label="Room code" />
           <Button type="submit" variant="ghost">
-            Open
+            Join
           </Button>
         </form>
       </section>

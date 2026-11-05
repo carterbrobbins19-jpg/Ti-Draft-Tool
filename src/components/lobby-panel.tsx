@@ -1,35 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { InviteList } from "@/components/host-menu";
+import { CopyLink, InviteList } from "@/components/host-menu";
+import { committedTileIds, SliceEditor, sliceFormToDraft, toSliceForm, type SliceForm } from "@/components/slice-editor";
 import { Button, Notice, TextInput } from "@/components/ui";
 import { FACTION_CATALOG, PLACEHOLDER_SLICES } from "@/lib/defaults";
-import { startDraft, updateSetup } from "@/lib/api";
+import { claimLobbySeat, setDraftTitle, setLobbyLocked, startDraft, updateSetup } from "@/lib/api";
 import { errorMessage } from "@/lib/errors";
-import { formatFactionLines, parseFactionLines, parseSliceImport } from "@/lib/slices";
-import type { DraftRoom, SliceDraft } from "@/lib/types";
-
-type SliceForm = {
-  key: string;
-  name: string;
-  planets: string;
-  resources: string;
-  influence: string;
-  notes: string;
-  imageUrl: string;
-};
-
-function toForm(slice: SliceDraft, key: string): SliceForm {
-  return {
-    key,
-    name: slice.name,
-    planets: slice.planets.join(", "),
-    resources: String(slice.total_resources),
-    influence: String(slice.total_influence),
-    notes: slice.special_notes ?? "",
-    imageUrl: slice.image_url ?? "",
-  };
-}
+import { formatFactionLines, parseFactionLines } from "@/lib/slices";
+import { duplicateTileIds } from "@/lib/tiles";
+import type { DraftRoom } from "@/lib/types";
 
 export function LobbyPanel({
   room,
@@ -49,7 +29,7 @@ export function LobbyPanel({
     [...room.slices]
       .sort((a, b) => a.sort_order - b.sort_order)
       .map((slice) =>
-        toForm(
+        toSliceForm(
           {
             name: slice.name,
             image_url: slice.image_url,
@@ -57,18 +37,20 @@ export function LobbyPanel({
             total_resources: slice.total_resources,
             total_influence: slice.total_influence,
             special_notes: slice.special_notes,
+            tile_ids: Array.isArray(slice.tile_ids) ? slice.tile_ids : [],
           },
           slice.id,
         ),
       ),
   );
-  const [jsonText, setJsonText] = useState("");
+  const [allowDuplicates, setAllowDuplicates] = useState(false);
+  const [title, setTitle] = useState(room.draft.title ?? "TI4 Draft");
   const [dirty, setDirty] = useState(false);
   const [busy, setBusy] = useState(false);
   const [localError, setLocalError] = useState<string | null>(null);
   const me = room.players.find((player) => player.user_id === room.userId);
 
-  function payload() {
+  function payload(requireComplete = false) {
     const factions = parseFactionLines(factionText);
     if (factions.length < 12 || factions.length > 40) throw new Error("Choose between 12 and 40 factions.");
     for (const faction of factions) {
@@ -82,22 +64,11 @@ export function LobbyPanel({
       throw new Error("Player names must be 1-40 characters.");
     }
     if (new Set(names.map((name) => name.toLowerCase())).size !== 6) throw new Error("Player names must be unique.");
-    const sliceDrafts: SliceDraft[] = slices.map((slice) => {
-      if (!/^[0-9]+$/.test(slice.resources) || !/^[0-9]+$/.test(slice.influence)) {
-        throw new Error(`${slice.name || "A slice"} needs whole-number resources and influence.`);
-      }
-      if (slice.imageUrl && !/^https?:\/\//i.test(slice.imageUrl)) {
-        throw new Error(`${slice.name} needs an image URL starting with http:// or https://.`);
-      }
-      return {
-        name: slice.name.trim(),
-        image_url: slice.imageUrl.trim() || null,
-        planets: slice.planets.split(",").map((planet) => planet.trim()).filter(Boolean),
-        total_resources: Number(slice.resources),
-        total_influence: Number(slice.influence),
-        special_notes: slice.notes.trim() || null,
-      };
-    });
+    const duplicates = duplicateTileIds(slices.map((slice) => committedTileIds(slice)));
+    if (duplicates.length && !allowDuplicates) {
+      throw new Error(`Tile ${duplicates.join(", ")} is in more than one slice.`);
+    }
+    const sliceDrafts = slices.map((slice) => sliceFormToDraft(slice, allowDuplicates, requireComplete));
     return {
       players: players.map((player) => ({ id: player.id, name: player.name.trim() })),
       factions,
@@ -105,13 +76,13 @@ export function LobbyPanel({
     };
   }
 
-  async function save() {
-    const next = payload();
+  async function save(requireComplete = false) {
+    const next = payload(requireComplete);
     await updateSetup(room.draft.id, next.players, next.factions, next.slices);
     setDirty(false);
   }
 
-  async function run(action: () => Promise<void>) {
+  async function run(action: () => Promise<unknown>) {
     setBusy(true);
     setLocalError(null);
     report(null);
@@ -130,9 +101,10 @@ export function LobbyPanel({
   if (!isHost) {
     return (
       <section className="rounded-3xl border border-white/10 bg-[#12182a]/90 p-4">
-        <h1 className="font-display text-3xl">Waiting room</h1>
+        <h1 className="font-display text-3xl">{room.draft.title ?? "Waiting room"}</h1>
+        <p className="mt-2 font-mono text-xl tracking-[0.24em] text-[#e4c27a]">{room.draft.lobby_code}</p>
         <p className="mt-2 text-sm text-white/70">
-          {me ? `You are seated as ${me.name}.` : "You are in this draft."} The host will start when the table is ready.
+          {me ? `You are seated as ${me.name}.` : "You are in this draft."} {room.players.filter((player) => player.user_id).length} of 6 seats claimed. The host will start when the table is ready.
         </p>
         <PlayerJoinList room={room} />
       </section>
@@ -142,11 +114,42 @@ export function LobbyPanel({
   return (
     <div className="grid gap-4">
       <section className="rounded-3xl border border-[#e4c27a]/30 bg-[#12182a]/90 p-4">
-        <h1 className="font-display text-3xl">Lobby {room.draft.lobby_code}</h1>
+        <label className="text-xs uppercase tracking-[0.18em] text-white/45" htmlFor="room-name">
+          Room name
+        </label>
+        <input
+          id="room-name"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          onBlur={() => {
+            const next = title.trim();
+            if (!next || next === (room.draft.title ?? "TI4 Draft")) return;
+            void run(() => setDraftTitle(room.draft.id, next));
+          }}
+          className="mt-1 w-full bg-transparent font-display text-3xl outline-none"
+        />
+        <p className="mt-2 font-mono text-2xl tracking-[0.28em] text-[#e4c27a]">{room.draft.lobby_code}</p>
         <p className="mt-2 text-sm leading-6 text-white/70">
-          Save the host recovery link. Open it on game day if this browser loses its session. Each player needs their own invite link.
+          Share one lobby link. Players claim a seat themselves. The room code does not give anyone host controls.
         </p>
-        {room.secrets ? <div className="mt-4"><InviteList invites={room.secrets.invites} hostToken={room.secrets.host_token} /></div> : null}
+        <div className="mt-3 flex flex-wrap gap-2">
+          <CopyLink label="Lobby link" path={`/join/${room.draft.lobby_code}`} />
+          <Button variant="ghost" disabled={busy} onClick={() => void run(() => setLobbyLocked(room.draft.id, room.draft.lobby_locked !== true))}>
+            {room.draft.lobby_locked ? "Unlock seat claims" : "Lock seat claims"}
+          </Button>
+        </div>
+        <p className="mt-2 text-sm text-white/55">
+          {room.players.filter((player) => player.user_id).length} of 6 seats claimed
+          {room.draft.lobby_locked ? " · claims locked" : ""}
+        </p>
+        {room.secrets ? (
+          <details className="mt-4">
+            <summary className="cursor-pointer text-sm text-white/60">Host recovery and personal seat links</summary>
+            <div className="mt-3">
+              <InviteList invites={room.secrets.invites} hostToken={room.secrets.host_token} />
+            </div>
+          </details>
+        ) : null}
       </section>
 
       {localError ? <Notice>{localError}</Notice> : null}
@@ -200,7 +203,20 @@ export function LobbyPanel({
                   >
                     Down
                   </Button>
-                  <span className="self-center px-1 text-xs text-white/45">{joined ? "Joined" : "Open"}</span>
+                  {joined ? (
+                    <span className="self-center px-1 text-xs text-white/45">Claimed</span>
+                  ) : !me && !room.draft.lobby_locked ? (
+                    <Button
+                      variant="ghost"
+                      className="min-h-12 px-3"
+                      disabled={busy}
+                      onClick={() => void run(() => claimLobbySeat(room.draft.lobby_code, player.id).then(() => undefined))}
+                    >
+                      Claim
+                    </Button>
+                  ) : (
+                    <span className="self-center px-1 text-xs text-white/45">{room.draft.lobby_locked ? "Locked" : "Open"}</span>
+                  )}
                 </div>
               </div>
             );
@@ -232,107 +248,29 @@ export function LobbyPanel({
         />
       </section>
 
-      <section className="rounded-3xl border border-white/10 bg-[#12182a]/90 p-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 className="font-display text-xl text-[#e4c27a]">Slices</h2>
-          <Button
-            variant="ghost"
-            onClick={() => {
-              setSlices(PLACEHOLDER_SLICES.map((slice) => toForm(slice, crypto.randomUUID())));
-              setDirty(true);
-            }}
-          >
-            Load placeholders
-          </Button>
-        </div>
-        <p className="mt-1 text-sm text-white/55">Enter slices yourself or paste JSON from another tool. This app does not generate maps.</p>
-        <textarea
-          value={jsonText}
-          onChange={(event) => setJsonText(event.target.value)}
-          placeholder='{"slices":[{"name":"Slice A","planets":["Amber Gate"],"resources":4,"influence":3,"notes":"Legendary: Amber Gate"}]}'
-          className="mt-3 min-h-28 w-full rounded-2xl border border-white/15 bg-[#070b14] p-3 font-mono text-sm outline-none focus:border-[#e4c27a]"
-        />
+      <div className="flex justify-end">
         <Button
           variant="ghost"
-          className="mt-2"
           onClick={() => {
-            try {
-              const imported = parseSliceImport(JSON.parse(jsonText));
-              if (imported.length < 6 || imported.length > 12) throw new Error("Import between 6 and 12 slices.");
-              setSlices(imported.map((slice) => toForm(slice, crypto.randomUUID())));
-              setDirty(true);
-              setLocalError(null);
-            } catch (error) {
-              setLocalError(error instanceof SyntaxError ? "That slice JSON could not be parsed." : errorMessage(error));
-            }
-          }}
-        >
-          Import JSON
-        </Button>
-        <div className="mt-4 grid gap-3">
-          {slices.map((slice, index) => (
-            <div key={slice.key} className="grid gap-2 rounded-2xl border border-white/10 p-3">
-              <TextInput
-                value={slice.name}
-                aria-label={`Slice ${index + 1} name`}
-                onChange={(event) => updateSlice(index, { name: event.target.value })}
-              />
-              <TextInput
-                value={slice.planets}
-                aria-label={`${slice.name} planets`}
-                placeholder="Planets, comma separated"
-                onChange={(event) => updateSlice(index, { planets: event.target.value })}
-              />
-              <div className="grid grid-cols-2 gap-2">
-                <TextInput
-                  inputMode="numeric"
-                  value={slice.resources}
-                  aria-label={`${slice.name} resources`}
-                  onChange={(event) => updateSlice(index, { resources: event.target.value })}
-                />
-                <TextInput
-                  inputMode="numeric"
-                  value={slice.influence}
-                  aria-label={`${slice.name} influence`}
-                  onChange={(event) => updateSlice(index, { influence: event.target.value })}
-                />
-              </div>
-              <TextInput
-                value={slice.notes}
-                aria-label={`${slice.name} notes`}
-                placeholder="Legendary planets or other notes"
-                onChange={(event) => updateSlice(index, { notes: event.target.value })}
-              />
-              <TextInput
-                value={slice.imageUrl}
-                aria-label={`${slice.name} image URL`}
-                placeholder="Optional image URL"
-                onChange={(event) => updateSlice(index, { imageUrl: event.target.value })}
-              />
-              <Button variant="ghost" disabled={slices.length <= 6} onClick={() => removeSlice(index)}>
-                Remove slice
-              </Button>
-            </div>
-          ))}
-        </div>
-        <Button
-          variant="ghost"
-          className="mt-3"
-          disabled={slices.length >= 12}
-          onClick={() => {
-            setSlices((current) => [
-              ...current,
-              toForm(
-                { name: `Slice ${current.length + 1}`, planets: [], total_resources: 0, total_influence: 0, special_notes: null, image_url: null },
-                crypto.randomUUID(),
-              ),
-            ]);
+            setSlices(PLACEHOLDER_SLICES.map((slice) => toSliceForm(slice, crypto.randomUUID())));
             setDirty(true);
           }}
         >
-          Add slice
+          Load placeholder slices
         </Button>
-      </section>
+      </div>
+      <SliceEditor
+        slices={slices}
+        allowDuplicates={allowDuplicates}
+        onSlices={(next) => {
+          setSlices(next);
+          setDirty(true);
+        }}
+        onAllowDuplicates={(value) => {
+          setAllowDuplicates(value);
+          setDirty(true);
+        }}
+      />
 
       <div className="grid gap-2 sm:grid-cols-2">
         <Button variant="ghost" disabled={busy || !dirty} onClick={() => void run(save)}>
@@ -344,7 +282,8 @@ export function LobbyPanel({
             void run(async () => {
               const unclaimed = room.players.filter((player) => !player.user_id).length;
               if (unclaimed > 0 && !window.confirm(`${unclaimed} seat(s) have not joined. Start anyway?`)) return;
-              if (dirty) await save();
+              if (dirty) await save(true);
+              else payload(true);
               await startDraft(room.draft.id);
             })
           }
@@ -365,15 +304,6 @@ export function LobbyPanel({
     setDirty(true);
   }
 
-  function updateSlice(index: number, patch: Partial<SliceForm>) {
-    setSlices((current) => current.map((slice, sliceIndex) => (sliceIndex === index ? { ...slice, ...patch } : slice)));
-    setDirty(true);
-  }
-
-  function removeSlice(index: number) {
-    setSlices((current) => current.filter((_, sliceIndex) => sliceIndex !== index));
-    setDirty(true);
-  }
 }
 
 function PlayerJoinList({ room }: { room: DraftRoom }) {

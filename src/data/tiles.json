@@ -1,0 +1,3608 @@
+{
+  "checkedAgainst": [
+    "https://twilight-imperium.fandom.com/wiki/Tiles_List",
+    "https://twilight-imperium.fandom.com/wiki/Planets"
+  ],
+  "images": "Official tile artwork was not copied. The KeeganW/ti4 repository is copyrighted without a license that allows redistribution.",
+  "tiles": [
+    {
+      "id": "1",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Federation of Sol",
+      "planets": [
+        {
+          "name": "Jord",
+          "resources": 4,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "2",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Mentak Coalition",
+      "planets": [
+        {
+          "name": "Moll Primus",
+          "resources": 4,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "3",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Yin Brotherhood",
+      "planets": [
+        {
+          "name": "Darien",
+          "resources": 4,
+          "influence": 4,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "4",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Embers of Muaat",
+      "planets": [
+        {
+          "name": "Muaat",
+          "resources": 4,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "5",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Arborec",
+      "planets": [
+        {
+          "name": "Nestphar",
+          "resources": 3,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "6",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The L1Z1X Mindnet",
+      "planets": [
+        {
+          "name": "[0.0.0]",
+          "resources": 5,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "7",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Winnu",
+      "planets": [
+        {
+          "name": "Winnu",
+          "resources": 3,
+          "influence": 4,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "8",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Nekro Virus",
+      "planets": [
+        {
+          "name": "Mordai II",
+          "resources": 4,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "9",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Naalu Collective",
+      "planets": [
+        {
+          "name": "Maaluuk",
+          "resources": 2,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Druaa",
+          "resources": 3,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "10",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Barony of Letnev",
+      "planets": [
+        {
+          "name": "Arc Prime",
+          "resources": 4,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Wren Terra",
+          "resources": 2,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "11",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Clan of Saar",
+      "planets": [
+        {
+          "name": "Lisis II",
+          "resources": 1,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Ragh",
+          "resources": 2,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "12",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Universities of Jol-Nar",
+      "planets": [
+        {
+          "name": "Nar",
+          "resources": 2,
+          "influence": 3,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Jol",
+          "resources": 1,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "13",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "Sardakk N'orr",
+      "planets": [
+        {
+          "name": "Tren'lak",
+          "resources": 1,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Quinarra",
+          "resources": 3,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "14",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Xxcha Kingdom",
+      "planets": [
+        {
+          "name": "Archon Ren",
+          "resources": 2,
+          "influence": 3,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Archon Tau",
+          "resources": 1,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "15",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Yssaril Tribes",
+      "planets": [
+        {
+          "name": "Retillion",
+          "resources": 2,
+          "influence": 3,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Shalloq",
+          "resources": 1,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "16",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Emirates of Hacan",
+      "planets": [
+        {
+          "name": "Arretze",
+          "resources": 2,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Hercant",
+          "resources": 1,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Kamdorn",
+          "resources": 0,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "17",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "gate",
+      "faction": "The Ghosts of Creuss",
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [
+        "delta"
+      ],
+      "links": [],
+      "note": "Creuss Gate. Delta wormhole with no planets."
+    },
+    {
+      "id": "18",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "mecatol",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Mecatol Rex",
+          "resources": 1,
+          "influence": 6,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": "Mecatol Rex. The center system, not a slice tile."
+    },
+    {
+      "id": "19",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Wellon",
+          "resources": 1,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": "cybernetic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "20",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Vefut II",
+          "resources": 2,
+          "influence": 2,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "21",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Thibah",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "propulsion",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "22",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Tar'mann",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "biotic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "23",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Saudor",
+          "resources": 2,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "24",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Mehar Xull",
+          "resources": 1,
+          "influence": 3,
+          "trait": "hazardous",
+          "specialty": "warfare",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "25",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Quann",
+          "resources": 2,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "beta"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "26",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Lodor",
+          "resources": 3,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "alpha"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "27",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "New Albion",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "biotic",
+          "legendary": false
+        },
+        {
+          "name": "Starpoint",
+          "resources": 3,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "28",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Tequ'ran",
+          "resources": 2,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Torkan",
+          "resources": 0,
+          "influence": 3,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "29",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Qucen'n",
+          "resources": 1,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Rarron",
+          "resources": 0,
+          "influence": 3,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "30",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Mellon",
+          "resources": 0,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Zohbat",
+          "resources": 3,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "31",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Lazar",
+          "resources": 1,
+          "influence": 0,
+          "trait": "industrial",
+          "specialty": "cybernetic",
+          "legendary": false
+        },
+        {
+          "name": "Sakulag",
+          "resources": 2,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "32",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Dal Bootha",
+          "resources": 0,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Xxehan",
+          "resources": 1,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "33",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Corneeq",
+          "resources": 1,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Resulon",
+          "resources": 2,
+          "influence": 0,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "34",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Centauri",
+          "resources": 1,
+          "influence": 3,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Gral",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "propulsion",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "35",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Bereg",
+          "resources": 3,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Lirta IV",
+          "resources": 2,
+          "influence": 3,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "36",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Arnor",
+          "resources": 2,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Lor",
+          "resources": 1,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "37",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Arinam",
+          "resources": 1,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Meer",
+          "resources": 0,
+          "influence": 4,
+          "trait": "hazardous",
+          "specialty": "warfare",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "38",
+      "expansion": "Base",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Abyz",
+          "resources": 3,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Fria",
+          "resources": 2,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "39",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "wormhole",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [
+        "alpha"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "40",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "wormhole",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [
+        "beta"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "41",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "42",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "nebula"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "43",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "supernova"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "44",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "asteroid-field"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "45",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "asteroid-field"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "46",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "47",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "48",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "49",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "50",
+      "expansion": "Base",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "51",
+      "expansion": "Base",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Ghosts of Creuss",
+      "planets": [
+        {
+          "name": "Creuss",
+          "resources": 4,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "delta"
+      ],
+      "links": [],
+      "note": "Ghosts of Creuss home system."
+    },
+    {
+      "id": "52",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Mahact Gene-sorcerers",
+      "planets": [
+        {
+          "name": "Ixth",
+          "resources": 3,
+          "influence": 5,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "53",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Nomad",
+      "planets": [
+        {
+          "name": "Arcturus",
+          "resources": 4,
+          "influence": 4,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "54",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Vuil'raith Cabal",
+      "planets": [
+        {
+          "name": "Acheron",
+          "resources": 4,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "55",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Titans of Ul",
+      "planets": [
+        {
+          "name": "Elysium",
+          "resources": 4,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "56",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Empyrean",
+      "planets": [
+        {
+          "name": "The Dark",
+          "resources": 3,
+          "influence": 4,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [
+        "nebula"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "57",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Naaz-Rokha Alliance",
+      "planets": [
+        {
+          "name": "Naazir",
+          "resources": 2,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Rokha",
+          "resources": 1,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "58",
+      "expansion": "Prophecy of Kings",
+      "type": "green",
+      "kind": "home",
+      "faction": "The Argent Flight",
+      "planets": [
+        {
+          "name": "Valk",
+          "resources": 2,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Avar",
+          "resources": 1,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Ylir",
+          "resources": 0,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "59",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Archon Vail",
+          "resources": 1,
+          "influence": 3,
+          "trait": "hazardous",
+          "specialty": "propulsion",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "60",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Perimeter",
+          "resources": 2,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "61",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Ang",
+          "resources": 2,
+          "influence": 0,
+          "trait": "industrial",
+          "specialty": "warfare",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "62",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Sem-Lore",
+          "resources": 3,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": "cybernetic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "63",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Vorhal",
+          "resources": 0,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": "biotic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "64",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Atlas",
+          "resources": 3,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "beta"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "65",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Primor",
+          "resources": 2,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "66",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Hope's End",
+          "resources": 3,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "67",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Cormund",
+          "resources": 2,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "68",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Everra",
+          "resources": 3,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [
+        "nebula"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "69",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Accoen",
+          "resources": 2,
+          "influence": 3,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Jeol Ir",
+          "resources": 2,
+          "influence": 3,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "70",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Kraag",
+          "resources": 2,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Siig",
+          "resources": 0,
+          "influence": 2,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "71",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Ba'Kal",
+          "resources": 3,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Alio Prima",
+          "resources": 1,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "72",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Lisis",
+          "resources": 2,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Velnor",
+          "resources": 2,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "warfare",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "73",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Lisis",
+          "resources": 0,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": "cybernetic",
+          "legendary": false
+        },
+        {
+          "name": "Xanhact",
+          "resources": 0,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "74",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Vega Major",
+          "resources": 2,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Vega Minor",
+          "resources": 1,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": "propulsion",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "75",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Loki",
+          "resources": 1,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Abaddon",
+          "resources": 1,
+          "influence": 0,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Ashtroth",
+          "resources": 2,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "76",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Rigel I",
+          "resources": 0,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Rigel II",
+          "resources": 1,
+          "influence": 2,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Rigel III",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "biotic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "77",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "78",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "empty",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "79",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "asteroid-field"
+      ],
+      "wormholes": [
+        "alpha"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "80",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "supernova"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "81",
+      "expansion": "Prophecy of Kings",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "muaat-supernova"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": "Embers of Muaat supernova. Not an ordinary anomaly tile."
+    },
+    {
+      "id": "82",
+      "expansion": "Prophecy of Kings",
+      "type": "blue",
+      "kind": "nexus",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Mallice",
+          "resources": 0,
+          "influence": 3,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "links": [],
+      "note": "Mallice, in the wormhole nexus. Not placed as a normal map hex."
+    },
+    {
+      "id": "83A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "83B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "84A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          2,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "84B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "85A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "85B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "86A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "86B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "87A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "87B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "88A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "88B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "89A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "89B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "90A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "90B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "91A",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "91B",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "92",
+      "expansion": "Thunder's Edge",
+      "type": "green",
+      "kind": "home",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Ordinian",
+          "resources": 0,
+          "influence": 0,
+          "trait": null,
+          "specialty": null,
+          "legendary": true
+        },
+        {
+          "name": "Revelation",
+          "resources": 1,
+          "influence": 2,
+          "trait": null,
+          "specialty": "space-station",
+          "legendary": false
+        }
+      ],
+      "anomalies": [
+        "nebula"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "93",
+      "expansion": "Thunder's Edge",
+      "type": "green",
+      "kind": "home",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Mez Lo Orz Fei Zsha",
+          "resources": 2,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Rep Lo Orz Qet",
+          "resources": 1,
+          "influence": 3,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "94",
+      "expansion": "Thunder's Edge",
+      "type": "green",
+      "kind": "home",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [
+        "epsilon"
+      ],
+      "links": [],
+      "note": "Home system. The tile index lists an epsilon wormhole and no planets, and does not name the faction."
+    },
+    {
+      "id": "95",
+      "expansion": "Thunder's Edge",
+      "type": "green",
+      "kind": "home",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Ikatena",
+          "resources": 4,
+          "influence": 4,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "96",
+      "expansion": "Thunder's Edge",
+      "type": "green",
+      "kind": "home",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Cronos",
+          "resources": 2,
+          "influence": 1,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Tallin",
+          "resources": 1,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "97",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Faunus",
+          "resources": 1,
+          "influence": 3,
+          "trait": "industrial",
+          "specialty": "biotic",
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "98",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Garbozia",
+          "resources": 2,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "99",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Emelpar",
+          "resources": 0,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "100",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Tempesta",
+          "resources": 1,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": "propulsion",
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "101",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Olergodt",
+          "resources": 2,
+          "influence": 1,
+          "trait": [
+            "cultural",
+            "hazardous"
+          ],
+          "specialty": "cybernetic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "102",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Andeara",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "propulsion",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "alpha"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "103",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Vira-Pics III",
+          "resources": 2,
+          "influence": 3,
+          "trait": [
+            "cultural",
+            "hazardous"
+          ],
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "104",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Lesab",
+          "resources": 2,
+          "influence": 1,
+          "trait": [
+            "hazardous",
+            "industrial"
+          ],
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "105",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "New Terra",
+          "resources": 1,
+          "influence": 1,
+          "trait": "industrial",
+          "specialty": "biotic",
+          "legendary": false
+        },
+        {
+          "name": "Tinnes",
+          "resources": 2,
+          "influence": 1,
+          "trait": [
+            "hazardous",
+            "industrial"
+          ],
+          "specialty": "biotic",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "106",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Cresius",
+          "resources": 0,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Lazul Rex",
+          "resources": 2,
+          "influence": 2,
+          "trait": [
+            "industrial",
+            "cultural"
+          ],
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "107",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Tiamat",
+          "resources": 2,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": "cybernetic",
+          "legendary": false
+        },
+        {
+          "name": "Hercalor",
+          "resources": 1,
+          "influence": 0,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "108",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Kostboth",
+          "resources": 0,
+          "influence": 1,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Capha",
+          "resources": 3,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "109",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Bellatrix",
+          "resources": 1,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Tsion Station",
+          "resources": 1,
+          "influence": 1,
+          "trait": null,
+          "specialty": "space-station",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "110",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Horizon",
+          "resources": 1,
+          "influence": 2,
+          "trait": "cultural",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "El'Nath",
+          "resources": 2,
+          "influence": 0,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Luthien VI",
+          "resources": 3,
+          "influence": 1,
+          "trait": "hazardous",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "111",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Tarana",
+          "resources": 1,
+          "influence": 2,
+          "trait": [
+            "industrial",
+            "cultural"
+          ],
+          "specialty": null,
+          "legendary": false
+        },
+        {
+          "name": "Oluz Station",
+          "resources": 1,
+          "influence": 1,
+          "trait": null,
+          "specialty": "space-station",
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "112",
+      "expansion": "Thunder's Edge",
+      "type": "blue",
+      "kind": "system",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Mecatol Rex",
+          "resources": 1,
+          "influence": 6,
+          "trait": null,
+          "specialty": null,
+          "legendary": true
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "113",
+      "expansion": "Thunder's Edge",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [
+        "beta"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "114",
+      "expansion": "Thunder's Edge",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "entropic-scar"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "115",
+      "expansion": "Thunder's Edge",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Industrex",
+          "resources": 2,
+          "influence": 0,
+          "trait": "industrial",
+          "specialty": "warfare",
+          "legendary": true
+        }
+      ],
+      "anomalies": [
+        "asteroid-field"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "116",
+      "expansion": "Thunder's Edge",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Lemox",
+          "resources": 0,
+          "influence": 3,
+          "trait": "industrial",
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [
+        "entropic-scar"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "117",
+      "expansion": "Thunder's Edge",
+      "type": "red",
+      "kind": "anomaly",
+      "faction": null,
+      "planets": [
+        {
+          "name": "The Watchtower",
+          "resources": 1,
+          "influence": 1,
+          "trait": null,
+          "specialty": "space-station",
+          "legendary": false
+        }
+      ],
+      "anomalies": [
+        "gravity-rift",
+        "asteroid-field"
+      ],
+      "wormholes": [],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "118",
+      "expansion": "Thunder's Edge",
+      "type": "green",
+      "kind": "home",
+      "faction": null,
+      "planets": [
+        {
+          "name": "Ahk Creuxx",
+          "resources": 4,
+          "influence": 2,
+          "trait": null,
+          "specialty": null,
+          "legendary": false
+        }
+      ],
+      "anomalies": [],
+      "wormholes": [
+        "epsilon"
+      ],
+      "links": [],
+      "note": null
+    },
+    {
+      "id": "hyp4squeeze",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypbball",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypcrossed",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypflair",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypfrost",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypfrostcross",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hyphorizon",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypmergeleft",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypmergeright",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypno",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypoops",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypriftabout1",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [],
+      "links": [
+        [
+          3,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypriftabout2",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypriftabout3",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypriftabout6",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [
+        "gravity-rift"
+      ],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hyproundabout1",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          3,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hyproundabout2",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          3
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hyproundabout3",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hyproundabout6",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    },
+    {
+      "id": "hypspaghet",
+      "expansion": "Prophecy of Kings",
+      "type": "hyperlane",
+      "kind": "hyperlane",
+      "faction": null,
+      "planets": [],
+      "anomalies": [],
+      "wormholes": [],
+      "links": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "note": "Hyperlane connector."
+    }
+  ]
+}

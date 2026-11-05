@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { HexTable } from "@/components/hex-table";
+import { LegacyTileNote, SliceMap, SliceSummary, TileDetail } from "@/components/slice-view";
 import { Button } from "@/components/ui";
+import { awaitingHomes } from "@/lib/slice-homes";
+import { lookupTile, readStoredTiles } from "@/lib/tiles";
 import { seatDraft } from "@/lib/board";
 import { selectionBlocker, type EngineState } from "@/lib/draft-rules";
 import { accentFor, choiceLabel } from "@/lib/labels";
@@ -30,6 +33,7 @@ export function ChoicePanel({
   onConfirm: () => void;
 }) {
   const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("factions");
+  const [openTile, setOpenTile] = useState<{ sliceId: string; tileId: string; heading?: string; emptyNote?: string } | null>(null);
   const me = room.players.find((player) => player.user_id === room.userId);
   const mine = me ? seatDraft(room.picks, me.id) : null;
   const label = pending ? choiceLabel(pending, room.factions, room.slices) : "";
@@ -104,7 +108,7 @@ export function ChoicePanel({
         ) : null}
 
         {tab === "slices" ? (
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3">
             {[...room.slices]
               .sort((a, b) => a.sort_order - b.sort_order)
               .map((slice) => {
@@ -113,29 +117,58 @@ export function ChoicePanel({
                 const choice: PickChoice = { category: "slice", sliceId: slice.id };
                 const blocked = selectionBlocker(engine, room.userId, choice);
                 const selected = pending?.category === "slice" && pending.sliceId === slice.id;
+                const stored = readStoredTiles(Array.isArray(slice.tile_ids) ? slice.tile_ids : []);
+                const summaryIds = stored.legacy ?? stored.slots;
                 const planets = Array.isArray(slice.planets) ? slice.planets : [];
                 return (
-                  <button
+                  <article
                     key={slice.id}
-                    type="button"
-                    disabled={Boolean(blocked)}
-                    onClick={() => onPending(choice)}
-                    className={`rounded-2xl border p-3 text-left disabled:cursor-not-allowed disabled:opacity-50 ${
-                      selected ? "border-[#e4c27a] bg-[#e4c27a]/15" : "border-white/10 bg-[#0c1222]"
-                    }`}
+                    className={`rounded-2xl border p-3 ${selected ? "border-[#e4c27a] bg-[#e4c27a]/15" : "border-white/10 bg-[#0c1222]"}`}
                   >
-                    {slice.image_url ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={slice.image_url} alt="" className="mb-3 h-24 w-full rounded-xl object-cover" />
+                    <h3 className="font-semibold">{slice.name}</h3>
+                    <SliceMap
+                      tileIds={stored.slots}
+                      homes={awaitingHomes()}
+                      blankLabel={stored.legacy ? "Older list" : "Empty"}
+                      onInspect={(detail) =>
+                        setOpenTile({
+                          sliceId: slice.id,
+                          tileId: detail.tileId,
+                          heading: detail.factionName ?? (detail.role === "main" ? "Home system" : detail.role === "minor" ? "Minor home" : undefined),
+                          emptyNote:
+                            detail.role === "system"
+                              ? undefined
+                              : detail.factionName
+                                ? "This faction's home system is not in the local catalog. Only the name is shown."
+                                : "This home is reserved until the host reveals main and minor factions.",
+                        })
+                      }
+                    />
+                    {stored.legacy ? <LegacyTileNote tileIds={stored.legacy} onOpen={(tileId) => setOpenTile({ sliceId: slice.id, tileId })} /> : null}
+                    {!stored.legacy && !stored.slots.some(Boolean) ? (
+                      <p className="mt-1 text-sm text-white/70">{planets.join(", ") || "No planets listed"}</p>
                     ) : null}
-                    <span className="block font-semibold">{slice.name}</span>
-                    <span className="mt-1 block text-sm text-white/70">{planets.join(", ") || "No planets listed"}</span>
-                    <span className="mt-2 block text-xs text-[#e4c27a]">
-                      {slice.total_resources} resources · {slice.total_influence} influence
-                    </span>
-                    {slice.special_notes ? <span className="mt-1 block text-xs text-white/55">{slice.special_notes}</span> : null}
-                    {ownerName ? <span className="mt-2 block text-xs text-white/50">Drafted by {ownerName}</span> : null}
-                  </button>
+                    <SliceSummary
+                      tileIds={summaryIds.some(Boolean) ? summaryIds : []}
+                      resources={slice.total_resources}
+                      influence={slice.total_influence}
+                      legacy={Boolean(stored.legacy)}
+                    />
+                    {slice.special_notes && !summaryIds.some(Boolean) ? <p className="mt-1 text-xs text-white/55">{slice.special_notes}</p> : null}
+                    {openTile?.sliceId === slice.id ? (
+                      <TileDetail
+                        tileId={openTile.tileId}
+                        tile={openTile.tileId ? lookupTile(openTile.tileId) : null}
+                        heading={openTile.heading}
+                        emptyNote={openTile.emptyNote}
+                        onClose={() => setOpenTile(null)}
+                      />
+                    ) : null}
+                    {ownerName ? <p className="mt-2 text-xs text-white/50">Drafted by {ownerName}</p> : null}
+                    <Button className="mt-3 w-full" variant={selected ? "primary" : "ghost"} disabled={Boolean(blocked)} onClick={() => onPending(choice)}>
+                      {selected ? "Selected" : "Select slice"}
+                    </Button>
+                  </article>
                 );
               })}
           </div>

@@ -1,6 +1,6 @@
 import { errorMessage } from "@/lib/errors";
 import { ensureSession, getSupabase } from "@/lib/supabase";
-import type { DraftRoom, FactionDraft, HostSecrets, SliceDraft } from "@/lib/types";
+import type { DraftRoom, FactionDraft, HostSecrets, LobbyPreview, SliceDraft } from "@/lib/types";
 
 async function callRpc<T>(name: string, args: Record<string, unknown>): Promise<T> {
   const supabase = getSupabase();
@@ -84,6 +84,29 @@ export async function claimSeat(token: string) {
   return callRpc<{ lobby_code: string; player_id: string; player_name: string }>("claim_seat", {
     p_token: token,
   });
+}
+
+export async function previewLobby(code: string) {
+  await ensureSession();
+  return callRpc<LobbyPreview>("preview_lobby", { p_code: code });
+}
+
+export async function claimLobbySeat(code: string, playerId: string) {
+  await ensureSession();
+  return callRpc<{ lobby_code: string; player_id: string; player_name: string }>("claim_lobby_seat", {
+    p_code: code,
+    p_player_id: playerId,
+  });
+}
+
+export async function setLobbyLocked(draftId: string, locked: boolean) {
+  await ensureSession();
+  return callRpc("set_lobby_locked", { p_draft_id: draftId, p_locked: locked });
+}
+
+export async function setDraftTitle(draftId: string, title: string) {
+  await ensureSession();
+  return callRpc("set_draft_title", { p_draft_id: draftId, p_title: title });
 }
 
 export async function claimHost(token: string) {

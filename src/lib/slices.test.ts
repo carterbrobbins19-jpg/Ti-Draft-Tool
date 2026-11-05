@@ -28,6 +28,15 @@ describe("slice import", () => {
   it("rejects a file without a slice list", () => {
     expect(() => parseSliceImport({ name: "Slice A" })).toThrow(/slices array/i);
   });
+
+  it("imports four tile numbers in order and refuses a fifth", () => {
+    const slices = parseSliceImport({
+      slices: [{ name: "Slice A", tiles: ["19", "32", "115", "31"] }],
+    });
+    expect(slices[0]?.tile_ids).toEqual(["19", "32", "115", "31"]);
+    expect(slices[0]?.planets).toContain("Wellon");
+    expect(() => parseSliceImport({ slices: [{ name: "Slice A", tiles: ["19", "32", "115", "31", "67"] }] })).toThrow(/not removed/i);
+  });
 });
 
 describe("faction lines", () => {

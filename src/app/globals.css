@@ -35,3 +35,17 @@ textarea {
 .coin-flip {
   animation: coin-flip 0.7s ease both;
 }
+
+.slice-short {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .slice-rich {
+    display: none;
+  }
+
+  .slice-short {
+    display: block;
+  }
+}

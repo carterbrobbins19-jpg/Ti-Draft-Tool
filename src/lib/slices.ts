@@ -1,3 +1,4 @@
+import { buildSliceStats, normalizeTileId, resolveSliceTile, sliceNotes } from "@/lib/tiles";
 import type { FactionDraft, SliceDraft } from "@/lib/types";
 
 function record(value: unknown): Record<string, unknown> | null {
@@ -66,6 +67,19 @@ export function parseSliceImport(raw: unknown): SliceDraft[] {
       .filter(Boolean)
       .join(". ");
     const image = text(row.image_url ?? row.imageUrl ?? row.image);
+    const tileIds = readImportedTiles(row, name);
+    if (tileIds) {
+      const stats = buildSliceStats(tileIds);
+      return {
+        name,
+        image_url: image || null,
+        planets: stats.planets,
+        total_resources: stats.resources,
+        total_influence: stats.influence,
+        special_notes: sliceNotes(stats),
+        tile_ids: tileIds,
+      };
+    }
 
     return {
       name,
@@ -74,8 +88,34 @@ export function parseSliceImport(raw: unknown): SliceDraft[] {
       total_resources: totalResources ?? resourceFallback,
       total_influence: totalInfluence ?? influenceFallback,
       special_notes: notes || null,
+      tile_ids: [],
     };
   });
+}
+
+function readImportedTiles(row: Record<string, unknown>, name: string): string[] | null {
+  const tileSource = row.tile_ids ?? row.tileIds ?? row.tiles;
+  if (tileSource === undefined || tileSource === null) return null;
+  if (!Array.isArray(tileSource)) {
+    throw new Error(`${name} tile numbers must be a list, such as ["19","32","115","31"].`);
+  }
+  const ids = tileSource.map((item) => {
+    if (typeof item !== "string") {
+      throw new Error(`${name} tile numbers must be text, such as 35 or 83A.`);
+    }
+    return normalizeTileId(item);
+  });
+  const filled = ids.filter(Boolean);
+  if (!filled.length) return null;
+  if (filled.length === 5 || ids.length > 4) {
+    throw new Error(
+      `${name} lists ${filled.length} tile numbers. Slices now use exactly four system tiles, in order: top center, middle center, bottom left, middle right. The extra tile was not removed. Home systems are reserved and are not part of this list.`,
+    );
+  }
+  if (filled.length !== 4 || ids.length !== 4) {
+    throw new Error(`${name} needs exactly four tile numbers. Home systems are reserved.`);
+  }
+  return ids.map((id) => resolveSliceTile(id));
 }
 
 export function parseFactionLines(value: string): FactionDraft[] {

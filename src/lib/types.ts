@@ -13,6 +13,8 @@ export type DraftRow = {
   next_pick: number;
   created_at: string;
   revealed_at: string | null;
+  title?: string;
+  lobby_locked?: boolean;
 };
 
 export type PlayerRow = {
@@ -47,6 +49,7 @@ export type SliceRow = {
   total_influence: number;
   special_notes: string | null;
   sort_order: number;
+  tile_ids?: string[] | null;
 };
 
 export type PickRow = {
@@ -74,6 +77,28 @@ export type SliceDraft = {
   total_resources: number;
   total_influence: number;
   special_notes: string | null;
+  tile_ids?: string[];
+  allow_duplicate_tiles?: boolean;
+};
+
+export type LobbySeat = {
+  id: string;
+  name: string;
+  seat_index: number;
+  claimed: boolean;
+  mine: boolean;
+};
+
+export type LobbyPreview = {
+  draft_id: string;
+  title: string;
+  lobby_code: string;
+  status: DraftStatus;
+  lobby_locked: boolean;
+  is_host: boolean;
+  my_player_id: string | null;
+  claimed_count: number;
+  players: LobbySeat[];
 };
 
 export type InviteLink = {

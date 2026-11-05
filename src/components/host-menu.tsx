@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { resetSeat, setPaused, undoLastPick } from "@/lib/api";
+import { resetSeat, setLobbyLocked, setPaused, undoLastPick } from "@/lib/api";
 import { errorMessage } from "@/lib/errors";
 import type { DraftRoom, InviteLink } from "@/lib/types";
 import { Button } from "@/components/ui";
@@ -35,6 +35,10 @@ export function HostMenu({
     <details className="rounded-3xl border border-[#e4c27a]/30 bg-[#12182a]/90 p-4">
       <summary className="cursor-pointer font-display text-lg text-[#e4c27a]">Host controls</summary>
       <div className="mt-4 grid gap-3">
+        <CopyLink label="Shared lobby link" path={`/join/${room.draft.lobby_code}`} />
+        <Button variant="ghost" disabled={busy} onClick={() => void run(() => setLobbyLocked(room.draft.id, room.draft.lobby_locked !== true))}>
+          {room.draft.lobby_locked ? "Unlock seat claims" : "Lock seat claims"}
+        </Button>
         {room.draft.status === "active" ? (
           <Button variant="ghost" disabled={busy} onClick={() => void run(() => setPaused(room.draft.id, true))}>
             Pause draft
@@ -70,11 +74,11 @@ export function HostMenu({
                 className="min-h-10 px-3"
                 disabled={busy || !invite.claimed}
                 onClick={() => {
-                  if (!window.confirm(`Reset ${invite.name}'s seat so their invite link can be used again?`)) return;
+                  if (!window.confirm(`Release ${invite.name}'s seat so someone else can claim it?`)) return;
                   void run(() => resetSeat(room.draft.id, invite.player_id));
                 }}
               >
-                Reset seat
+                Release seat
               </Button>
             </div>
           ))}
@@ -87,15 +91,15 @@ export function HostMenu({
 export function InviteList({ invites, hostToken }: { invites: InviteLink[]; hostToken?: string }) {
   return (
     <div className="grid gap-2">
-      {hostToken ? <CopyRow label="Host recovery link" path={`/host/${hostToken}`} /> : null}
+      {hostToken ? <CopyLink label="Host recovery link" path={`/host/${hostToken}`} /> : null}
       {invites.map((invite) => (
-        <CopyRow key={invite.player_id} label={`${invite.name} invite`} path={`/join/${invite.token}`} />
+        <CopyLink key={invite.player_id} label={`${invite.name} invite`} path={`/join/${invite.token}`} />
       ))}
     </div>
   );
 }
 
-function CopyRow({ label, path }: { label: string; path: string }) {
+export function CopyLink({ label, path }: { label: string; path: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <div className="flex items-center justify-between gap-2 rounded-xl border border-white/10 px-3 py-2">

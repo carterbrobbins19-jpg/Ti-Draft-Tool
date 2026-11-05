@@ -3,24 +3,27 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Button, Header, LoadingScreen, Notice, Shell } from "@/components/ui";
+import { LobbyJoin } from "@/components/lobby-join";
 import { claimHost, claimSeat, previewInvite } from "@/lib/api";
 import { errorMessage } from "@/lib/errors";
+import { isRoomCode, normalizeRoomCode } from "@/lib/lobby";
 import { supabaseEnv } from "@/lib/supabase";
 
 export function ClaimScreen({ kind }: { kind: "seat" | "host" }) {
   const params = useParams<{ token: string }>();
   const token = decodeURIComponent(params.token ?? "").trim();
+  const shared = kind === "seat" && isRoomCode(token);
   const router = useRouter();
   const configured = Boolean(supabaseEnv());
   const [preview, setPreview] = useState<{ player_name: string; claimed: boolean; lobby_code: string } | null>(null);
   const [error, setError] = useState<string | null>(
     configured ? null : "Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to .env.local.",
   );
-  const [loading, setLoading] = useState(configured && kind === "seat");
+  const [loading, setLoading] = useState(configured && kind === "seat" && !shared);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    if (!configured || kind === "host") return;
+    if (!configured || kind === "host" || shared) return;
     let cancelled = false;
     void previewInvite(token)
       .then((result) => {
@@ -35,7 +38,9 @@ export function ClaimScreen({ kind }: { kind: "seat" | "host" }) {
     return () => {
       cancelled = true;
     };
-  }, [configured, kind, token]);
+  }, [configured, kind, shared, token]);
+
+  if (shared) return <LobbyJoin code={normalizeRoomCode(token)} />;
 
   async function claim() {
     setBusy(true);
