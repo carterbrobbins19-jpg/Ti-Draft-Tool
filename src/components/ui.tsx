@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode } from "react";
 
-export function Shell({ children }: { children: ReactNode }) {
-  return <div className="mx-auto flex min-h-full w-full max-w-6xl flex-col gap-5 px-4 py-5 sm:px-6">{children}</div>;
+export function Shell({ children, wide = false }: { children: ReactNode; wide?: boolean }) {
+  return (
+    <div className={`mx-auto flex min-h-full w-full flex-col gap-5 px-4 py-5 sm:px-6 ${wide ? "max-w-[1600px]" : "max-w-6xl"}`}>{children}</div>
+  );
 }
 
 export function LoadingScreen({ label }: { label: string }) {

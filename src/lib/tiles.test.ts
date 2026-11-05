@@ -136,8 +136,8 @@ describe("minor faction homes", () => {
       oppositeMinorFaction: "Hacan",
     };
     expect(homesForSeat(input)).toEqual(homesForSeat(input));
-    expect(homesForSeat({ ...input, revealed: false }).main.subtitle).toBe("Awaiting reveal");
-    expect(homesForSeat({ ...input, revealed: false }).minor.subtitle).toBe("Awaiting reveal");
+    expect(homesForSeat({ ...input, revealed: false }).main.subtitle).toBe("Awaiting assignment");
+    expect(homesForSeat({ ...input, revealed: false }).minor.subtitle).toBe("Awaiting assignment");
   });
 });
 

@@ -120,7 +120,7 @@ export function DraftRoom() {
         : undefined;
 
   return (
-    <Shell>
+    <Shell wide={room.draft.status !== "lobby"}>
       <Header code={room.draft.lobby_code} detail={detail} connection={connection} />
       {banner ? <Notice>{banner}</Notice> : null}
       {room.draft.status === "lobby" ? <LobbyPanel room={room} refresh={refresh} report={setBanner} /> : null}

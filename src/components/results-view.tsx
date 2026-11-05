@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { HexTable } from "@/components/hex-table";
+import { GalaxyMap } from "@/components/galaxy-map";
 import { HostMenu } from "@/components/host-menu";
 import { LegacyTileNote, SliceMap, SliceSummary, TileDetail } from "@/components/slice-view";
 import { Button } from "@/components/ui";
+import { recordFactionAssignments } from "@/lib/api";
 import { seatDraft } from "@/lib/board";
 import { oppositePosition } from "@/lib/draft-rules";
 import { errorMessage } from "@/lib/errors";
+import { seatsFromRoom } from "@/lib/galaxy";
 import { factionName, sliceName } from "@/lib/labels";
-import { revealFactions } from "@/lib/api";
 import { homesForSeat, minorFactionAcrossFrom } from "@/lib/slice-homes";
 import { lookupTile, readStoredTiles } from "@/lib/tiles";
 import type { DraftRoom, PlayerRow } from "@/lib/types";
@@ -25,57 +26,27 @@ export function ResultsView({
   refresh: () => Promise<void>;
   report: (message: string | null) => void;
 }) {
-  const [busy, setBusy] = useState(false);
   const revealed = room.draft.status === "revealed";
   const players = [...room.players].sort((a, b) => a.draft_order - b.draft_order);
   const isHost = room.draft.host_user_id === room.userId;
-
-  async function reveal() {
-    if (!window.confirm("Reveal main and minor factions? The coin flips are saved and will not change.")) return;
-    setBusy(true);
-    report(null);
-    try {
-      await revealFactions(room.draft.id);
-      await refresh();
-    } catch (error) {
-      report(errorMessage(error));
-    } finally {
-      setBusy(false);
-    }
-  }
+  const seats = seatsFromRoom(room);
 
   return (
     <div className="grid gap-4">
       <section className="rounded-3xl border border-[#e4c27a]/30 bg-[#12182a]/90 p-5 text-center">
-        <p className="text-xs uppercase tracking-[0.2em] text-[#e4c27a]">{revealed ? "Factions revealed" : "Draft complete"}</p>
-        <h1 className="mt-2 font-display text-3xl">{revealed ? "Main and minor factions" : "Roles are still hidden"}</h1>
+        <p className="text-xs uppercase tracking-[0.2em] text-[#e4c27a]">{revealed ? "Factions recorded" : "Draft complete"}</p>
+        <h1 className="mt-2 font-display text-3xl">
+          {revealed ? "Main and minor factions" : "Draft Complete — Faction assignments will be determined on game day."}
+        </h1>
         <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-white/70">
           {revealed
-            ? "Each coin flip was rolled once on the server. Reloading this page will not change it."
-            : "Every player has two factions, one slice, and one position. The host reveals which faction is played."}
+            ? "These faction roles are published. Refreshing this page will not change them."
+            : "Every player has two factions, one slice, and one position. Neither faction is the main or minor faction until the host publishes the physical coin flips."}
         </p>
-        {isHost && !revealed ? (
-          <Button className="mt-4 w-full sm:w-auto" disabled={busy} onClick={() => void reveal()}>
-            {busy ? "Revealing..." : "Reveal factions"}
-          </Button>
-        ) : null}
       </section>
 
-      {revealed ? (
-        <HexTable
-          seats={[1, 2, 3, 4, 5, 6].map((position) => {
-            const seated = players.find((player) => seatDraft(room.picks, player.id).position === position);
-            const minorOwner = players.find((player) => seatDraft(room.picks, player.id).position === oppositePosition(position));
-            return {
-              position,
-              title: seated?.name ?? "Empty",
-              subtitle: seated ? factionName(room.factions, seated.main_faction_id) : undefined,
-              note: minorOwner ? `Minor: ${factionName(room.factions, minorOwner.minor_faction_id)}` : undefined,
-              taken: true,
-            };
-          })}
-        />
-      ) : null}
+      <GalaxyMap seats={seats} />
+      {isHost && !revealed ? <AssignmentForm room={room} refresh={refresh} report={report} /> : null}
 
       <div className="grid gap-3">
         {players.map((player, index) => (
@@ -158,7 +129,7 @@ function PlayerResult({
                     ? undefined
                     : detail.factionName
                       ? "This faction's home system is not in the local catalog. Only the name is shown."
-                      : "This home is reserved until the host reveals main and minor factions.",
+                      : "This home is reserved until faction assignments are recorded.",
               })
             }
           />
@@ -194,6 +165,76 @@ function seatsForHomes(room: DraftRoom) {
     position: seatDraft(room.picks, player.id).position ?? 0,
     minorFaction: cleanName(factionName(room.factions, player.minor_faction_id)),
   }));
+}
+
+function AssignmentForm({
+  room,
+  refresh,
+  report,
+}: {
+  room: DraftRoom;
+  refresh: () => Promise<void>;
+  report: (message: string | null) => void;
+}) {
+  const players = [...room.players].sort((a, b) => a.draft_order - b.draft_order);
+  const [choices, setChoices] = useState<Record<string, string>>({});
+  const [busy, setBusy] = useState(false);
+  const ready = players.every((player) => {
+    const seat = seatDraft(room.picks, player.id);
+    return seat.factions.some((pick) => pick.faction_id === choices[player.id]);
+  });
+
+  async function publish() {
+    if (!ready) return;
+    if (!window.confirm("Publish these faction assignments? They are saved and will not change.")) return;
+    setBusy(true);
+    report(null);
+    try {
+      await recordFactionAssignments(
+        room.draft.id,
+        players.map((player) => ({ player_id: player.id, main_faction_id: choices[player.id] ?? "" })),
+      );
+      await refresh();
+    } catch (error) {
+      report(errorMessage(error));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <section className="rounded-3xl border border-white/10 bg-[#12182a]/90 p-4">
+      <h2 className="font-display text-xl text-[#e4c27a]">Record faction assignments</h2>
+      <p className="mt-2 text-sm leading-6 text-white/70">
+        Choose the main faction from each player&apos;s two drafted factions. The other becomes the minor faction. Nothing is published until all six are confirmed.
+      </p>
+      <div className="mt-4 grid gap-3">
+        {players.map((player) => {
+          const seat = seatDraft(room.picks, player.id);
+          return (
+            <label key={player.id} className="grid gap-2 rounded-2xl bg-black/20 p-3 text-sm">
+              <span className="font-semibold">{player.name}</span>
+              <select
+                className="min-h-12 rounded-xl border border-white/15 bg-[#070b14] px-3 text-base"
+                value={choices[player.id] ?? ""}
+                onChange={(event) => setChoices((current) => ({ ...current, [player.id]: event.target.value }))}
+              >
+                <option value="">Choose the main faction</option>
+                {seat.factions.map((pick) => (
+                  <option key={pick.faction_id} value={pick.faction_id ?? ""}>
+                    {factionName(room.factions, pick.faction_id)}
+                  </option>
+                ))}
+              </select>
+            </label>
+          );
+        })}
+      </div>
+      <Button className="mt-4 w-full sm:w-auto" disabled={!ready || busy} onClick={() => void publish()}>
+        {busy ? "Publishing..." : "Publish assignments"}
+      </Button>
+    </section>
+  );
 }
 
 function Result({ label, value, emphasis = false }: { label: string; value: string; emphasis?: boolean }) {

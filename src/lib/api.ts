@@ -63,6 +63,11 @@ export async function revealFactions(draftId: string) {
   return callRpc("reveal_factions", { p_draft_id: draftId });
 }
 
+export async function recordFactionAssignments(draftId: string, choices: { player_id: string; main_faction_id: string }[]) {
+  await ensureSession();
+  return callRpc("record_faction_assignments", { p_draft_id: draftId, p_choices: choices });
+}
+
 export async function getHostSecrets(draftId: string): Promise<HostSecrets> {
   await ensureSession();
   return callRpc<HostSecrets>("get_host_secrets", { p_draft_id: draftId });

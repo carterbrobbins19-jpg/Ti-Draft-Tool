@@ -436,6 +436,12 @@ export function TileDetail({
       ) : (
         <p className="mt-2 text-white/60">{emptyNote ?? (tile ? "No planets." : "This number is not in the Base, Prophecy of Kings, or Thunder's Edge catalog.")}</p>
       )}
+      {tile && tile.planets.length > 1 ? (
+        <p className="mt-2">
+          System totals: {tile.planets.reduce((sum, planet) => sum + planet.resources, 0)} resources /{" "}
+          {tile.planets.reduce((sum, planet) => sum + planet.influence, 0)} influence
+        </p>
+      ) : null}
       {tile && tile.wormholes.length ? <p className="mt-2">Wormholes: {tile.wormholes.map(labelWormhole).join(", ")}</p> : null}
       {tile && tile.anomalies.length ? <p>Anomalies: {tile.anomalies.map(labelAnomaly).join(", ")}</p> : null}
       {tile && tile.links.length ? <p>Hyperlane links: {tile.links.map((link) => link.join("–")).join(", ")}</p> : null}

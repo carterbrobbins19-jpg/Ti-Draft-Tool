@@ -24,6 +24,7 @@ export function ChoicePanel({
   busy,
   onPending,
   onConfirm,
+  onViewSlice,
 }: {
   room: DraftRoom;
   engine: EngineState;
@@ -31,6 +32,7 @@ export function ChoicePanel({
   busy: boolean;
   onPending: (choice: PickChoice) => void;
   onConfirm: () => void;
+  onViewSlice?: (sliceId: string) => void;
 }) {
   const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("factions");
   const [openTile, setOpenTile] = useState<{ sliceId: string; tileId: string; heading?: string; emptyNote?: string } | null>(null);
@@ -140,7 +142,7 @@ export function ChoicePanel({
                               ? undefined
                               : detail.factionName
                                 ? "This faction's home system is not in the local catalog. Only the name is shown."
-                                : "This home is reserved until the host reveals main and minor factions.",
+                                : "This home is reserved until faction assignments are recorded.",
                         })
                       }
                     />
@@ -165,6 +167,9 @@ export function ChoicePanel({
                       />
                     ) : null}
                     {ownerName ? <p className="mt-2 text-xs text-white/50">Drafted by {ownerName}</p> : null}
+                    <Button className="mt-3 w-full" variant="ghost" onClick={() => onViewSlice?.(slice.id)}>
+                      View on map
+                    </Button>
                     <Button className="mt-3 w-full" variant={selected ? "primary" : "ghost"} disabled={Boolean(blocked)} onClick={() => onPending(choice)}>
                       {selected ? "Selected" : "Select slice"}
                     </Button>

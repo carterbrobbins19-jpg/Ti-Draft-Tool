@@ -42,7 +42,7 @@ In Authentication → Sign In / Providers, enable **Anonymous sign-ins**.
 
 Players do not create email accounts. The first visit stores an anonymous session in the browser. That session is the seat identity. Clearing site data detaches the seat until the player claims it again, or until the host releases it.
 
-Run `supabase/migrations/002_shared_lobby.sql` after the first migration. It adds the shared room code, seat-claim lock, and ordered tile numbers on each slice. Then run `supabase/migrations/003_four_tile_slices.sql`. That migration keeps existing drafts and still accepts an older five-tile list. New slices store four system tiles. The main and minor home systems are not stored as tile numbers.
+Run `supabase/migrations/002_shared_lobby.sql` after the first migration. It adds the shared room code, seat-claim lock, and ordered tile numbers on each slice. Then run `supabase/migrations/003_four_tile_slices.sql`. That migration keeps existing drafts and still accepts an older five-tile list. New slices store four system tiles. The main and minor home systems are not stored as tile numbers. Then run `supabase/migrations/004_manual_factions.sql`. It stops automatic coin flips for drafts that are not already revealed and lets the host record the physical results.
 
 ### 2. Run the migration
 
@@ -71,7 +71,7 @@ Use the anon public key in `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Leave the service-ro
 4. Start the draft. Players may claim an open seat after the start unless claims are locked, but a seat cannot pick until it has been claimed.
 5. On your turn, choose a faction, slice, or position and confirm it. Everyone else's screen updates from Supabase Realtime. A backup refresh runs every 12 seconds.
 6. When all 24 picks are in, the two factions stay unassigned.
-7. On game day the host presses **Reveal factions**. Position 1 is opposite 4, 2 opposite 5, and 3 opposite 6. The minor faction is shown at the opposite position.
+7. On game day the table flips physical coins. The host opens **Record faction assignments**, chooses each player's main faction, and publishes all six together. Position 1 is opposite 4, 2 opposite 5, and 3 opposite 6. The minor faction is shown in the opposite slice. A draft that was already revealed keeps its saved result.
 
 Slice JSON can be an array or `{ "slices": [ ... ] }`. Each slice accepts `name`, `planets` (names or `{ name, resources, influence, legendary }`), `resources` / `total_resources`, `influence` / `total_influence`, `notes`, optional `tile_ids`, and an optional `image` URL. Paste four tile numbers per line, in this order: top center, middle center, bottom left, middle right. A fifth number is rejected so an older line is not silently shortened. The red hex is the opposite player's minor faction home, and the green hex is that slice's main faction home. Those homes fill in after the host reveals the coin flip. The tile catalog is local and covers the base game, Prophecy of Kings, and Thunder's Edge, including hyperlanes such as `83A`. Official tile artwork is not included. See `examples/slices.example.json`. Placeholder slices are included so the draft can be tested before real slices are entered. There is no map generator.
 

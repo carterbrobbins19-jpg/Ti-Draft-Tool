@@ -34,8 +34,8 @@ export function reservedHomes(): SliceHomes {
 
 export function awaitingHomes(): SliceHomes {
   return {
-    main: face("main", "HOME SYSTEM", "Awaiting reveal", null),
-    minor: face("minor", "MINOR HOME", "Awaiting reveal", null),
+    main: face("main", "HOME SYSTEM", "Awaiting assignment", null),
+    minor: face("minor", "MINOR HOME", "Awaiting assignment", null),
   };
 }
 
