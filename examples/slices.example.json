@@ -1,0 +1,46 @@
+{
+  "slices": [
+    {
+      "name": "Slice A",
+      "planets": ["Amber Gate", "Cinder Reach", "Hollow Verge"],
+      "resources": 5,
+      "influence": 3,
+      "notes": "Placeholder slice",
+      "legendary": ["Amber Gate"]
+    },
+    {
+      "name": "Slice B",
+      "planets": [
+        { "name": "Blue Harbor", "resources": 2, "influence": 3 },
+        { "name": "Drift Chapel", "resources": 2, "influence": 3, "legendary": true }
+      ],
+      "notes": "Placeholder slice"
+    },
+    {
+      "name": "Slice C",
+      "planets": ["Red Orchard", "Quiet Meridian"],
+      "total_resources": 6,
+      "total_influence": 2,
+      "special_notes": "Placeholder slice"
+    },
+    {
+      "name": "Slice D",
+      "planets": ["North Archive", "Pale Relay", "Salt Crown"],
+      "resources": 3,
+      "influence": 5
+    },
+    {
+      "name": "Slice E",
+      "planets": ["Ivory March", "Twin Cistern", "Low Lantern"],
+      "resources": 4,
+      "influence": 4
+    },
+    {
+      "name": "Slice F",
+      "planets": ["Goldwake", "Severed Aisle", "Mute Garden"],
+      "resources": 5,
+      "influence": 5,
+      "legendary": ["Mute Garden"]
+    }
+  ]
+}

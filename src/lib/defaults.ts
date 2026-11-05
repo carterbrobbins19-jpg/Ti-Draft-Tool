@@ -1,0 +1,100 @@
+import type { FactionDraft, SliceDraft } from "@/lib/types";
+
+const CATALOG: ReadonlyArray<readonly [string, string]> = [
+  ["Arborec", "Base"],
+  ["Barony of Letnev", "Base"],
+  ["Clan of Saar", "Base"],
+  ["Embers of Muaat", "Base"],
+  ["Hacan", "Base"],
+  ["Federation of Sol", "Base"],
+  ["Ghosts of Creuss", "Base"],
+  ["L1Z1X Mindnet", "Base"],
+  ["Mentak Coalition", "Base"],
+  ["Naalu Collective", "Base"],
+  ["Nekro Virus", "Base"],
+  ["Sardakk N'orr", "Base"],
+  ["Universities of Jol-Nar", "Base"],
+  ["Winnu", "Base"],
+  ["Xxcha Kingdom", "Base"],
+  ["Yin Brotherhood", "Base"],
+  ["Yssaril Tribes", "Base"],
+  ["Argent Flight", "Prophecy of Kings"],
+  ["Empyrean", "Prophecy of Kings"],
+  ["Mahact Gene-Sorcerers", "Prophecy of Kings"],
+  ["Naaz-Rokha Alliance", "Prophecy of Kings"],
+  ["Nomad", "Prophecy of Kings"],
+  ["Titans of Ul", "Prophecy of Kings"],
+  ["Vuil'Raith Cabal", "Prophecy of Kings"],
+  ["Keleres", "Codex"],
+  ["Last Bastion", "Thunder's Edge"],
+  ["Ral Nel", "Thunder's Edge"],
+  ["Deepwrought Scholarate", "Thunder's Edge"],
+  ["Crimson Rebellion", "Thunder's Edge"],
+  ["The Firmament", "Thunder's Edge"],
+];
+
+export const FACTION_CATALOG: FactionDraft[] = CATALOG.map(([name, expansion]) => ({
+  name,
+  expansion,
+  image_url: null,
+}));
+
+export const PLACEHOLDER_SLICES: SliceDraft[] = [
+  {
+    name: "Slice A",
+    planets: ["Amber Gate", "Cinder Reach", "Hollow Verge"],
+    total_resources: 5,
+    total_influence: 3,
+    special_notes: "Placeholder slice. Legendary: Amber Gate",
+    image_url: null,
+  },
+  {
+    name: "Slice B",
+    planets: ["Blue Harbor", "Drift Chapel", "Kite Station"],
+    total_resources: 4,
+    total_influence: 6,
+    special_notes: "Placeholder slice. Wormhole",
+    image_url: null,
+  },
+  {
+    name: "Slice C",
+    planets: ["Red Orchard", "Quiet Meridian", "Glass Lowland"],
+    total_resources: 6,
+    total_influence: 2,
+    special_notes: "Placeholder slice. Legendary: Red Orchard",
+    image_url: null,
+  },
+  {
+    name: "Slice D",
+    planets: ["North Archive", "Pale Relay", "Salt Crown"],
+    total_resources: 3,
+    total_influence: 5,
+    special_notes: "Placeholder slice. Tech specialty",
+    image_url: null,
+  },
+  {
+    name: "Slice E",
+    planets: ["Ivory March", "Twin Cistern", "Low Lantern"],
+    total_resources: 4,
+    total_influence: 4,
+    special_notes: "Placeholder slice. Empty adjacent system",
+    image_url: null,
+  },
+  {
+    name: "Slice F",
+    planets: ["Goldwake", "Severed Aisle", "Mute Garden"],
+    total_resources: 5,
+    total_influence: 5,
+    special_notes: "Placeholder slice. Legendary: Mute Garden",
+    image_url: null,
+  },
+];
+
+export const DEFAULT_PLAYER_NAMES = [
+  "Player 1",
+  "Player 2",
+  "Player 3",
+  "Player 4",
+  "Player 5",
+  "Player 6",
+];
